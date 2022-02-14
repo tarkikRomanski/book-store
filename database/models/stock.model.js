@@ -12,7 +12,7 @@ const Stock = sequelize.define(
         productId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            fieldName: 'product_id',
+            field: 'product_id',
         },
         quantity: {
             type: DataTypes.INTEGER,
@@ -21,7 +21,7 @@ const Stock = sequelize.define(
         barCode: {
             type: DataTypes.STRING(50),
             allowNull: false,
-            fieldName: 'bar_code',
+            field: 'bar_code',
         }
     },
     {

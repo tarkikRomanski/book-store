@@ -15,7 +15,7 @@ const Category = sequelize.define(
             validate: {
                 len: [3, 50],
             },
-            fieldName: 'name_translation_id'
+            field: 'name_translation_id'
         },
         color: {
             type: DataTypes.STRING(7),

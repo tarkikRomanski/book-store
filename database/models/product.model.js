@@ -20,7 +20,7 @@ const Product = sequelize.define(
         categoryId: {
             type: DataTypes.INTEGER,
             allowNull: true,
-            fieldName: 'category_id'
+            field: 'category_id'
         },
         image: {
             type: DataTypes.STRING(150),

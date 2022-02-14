@@ -12,12 +12,12 @@ const AttributeValue = sequelize.define(
         productId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            fieldName: 'product_id',
+            field: 'product_id',
         },
         attributeId: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            fieldName: 'attribute_id',
+            field: 'attribute_id',
         },
         value: {
             type: DataTypes.STRING,

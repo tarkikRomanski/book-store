@@ -20,7 +20,7 @@ const Attribute = sequelize.define(
         isPrimary: {
             type: DataTypes.BOOLEAN,
             default: false,
-            fieldName: 'is_primary',
+            field: 'is_primary',
         },
     },
     {

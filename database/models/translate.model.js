@@ -20,6 +20,7 @@ const Translate = sequelize.define(
         originalId: {
             type: DataTypes.INTEGER,
             allowNull: true,
+            field: 'original_id'
         }
     },
     {
