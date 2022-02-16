@@ -17,9 +17,13 @@ Product.hasOne(Stock, { foreignKey: 'product_id' })
 Stock.belongsTo(Product, { foreignKey: 'product_id' })
 //
 
-// product - translate M2O
+// product - translate O2M
 Translate.hasMany(Product, { foreignKey: 'title' })
 Product.belongsTo(Translate, { foreignKey: 'title' })
+//
+
+// translate - translate O2M
+Translate.hasMany(Translate, { foreignKey: 'original_id' })
 //
 
 // category - product O2M

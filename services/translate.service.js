@@ -1,16 +1,16 @@
 const {
-    Translate
-} = require('../../database/models');
+    Translate,
+} = require('../database/models');
 
-async function create(text) {
+async function create(translates) {
     const originalTranslate = await Translate.create({
         language: 'en',
-        text: text.en,
+        text: translates.en,
     })
 
     const uaResult = await Translate.create({
         language: 'ua',
-        text: text.ua,
+        text: translates.ua,
         originalId: originalTranslate.id,
     })
 
