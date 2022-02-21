@@ -18,8 +18,8 @@ Stock.belongsTo(Product, { foreignKey: 'product_id' })
 //
 
 // product - translate O2M
-Translate.hasMany(Product, { foreignKey: 'title' })
-Product.belongsTo(Translate, { foreignKey: 'title' })
+Product.hasMany(Translate, { foreignKey: 'title' })
+Translate.belongsTo(Product, { foreignKey: 'title' })
 //
 
 // translate - translate O2M

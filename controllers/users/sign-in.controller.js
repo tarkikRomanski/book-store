@@ -30,7 +30,7 @@ async function signInController(req, res) {
 
     responseService.sendSuccessResponse(
         res,
-        result.dataValues,
+        result,
     )
 }
 
