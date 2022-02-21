@@ -11,7 +11,7 @@ function productModelToListItemDtoMapper(product, language = null) {
         const translate = product.Translate.Translates.find((item) => item.language === language)
 
         if (translate) {
-            title = translate.text
+            title = `title: ${translate.text}`
         }
     }
 
