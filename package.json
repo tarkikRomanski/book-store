@@ -21,6 +21,8 @@
     "body-parser": "^1.19.1",
     "express": "^4.17.2",
     "md5": "^2.3.0",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.2.3",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.16.1"
