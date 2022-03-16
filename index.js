@@ -5,6 +5,7 @@ const {
     initProductRoutes,
 } = require("./routes")
 const getLanguageMiddleware = require('./middlewares/get-language.middleware')
+
 const app = express()
 const port = 3000
 

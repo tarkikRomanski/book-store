@@ -1,17 +1,19 @@
 const {ProductListItemDto} = require("../../dto");
 
 function productModelToListItemDtoMapper(product, language = null) {
-    if (product.Translate === undefined) {
-        throw new Error('Product model should contain `Translate` field. Maybe you forgot to add `include: [Translate]` to request')
+    if (product.Translates === undefined && !product.Translates.length()) {
+        throw new Error('Product model should contain `Translates` field. Maybe you forgot to add `include: [Translate]` to request')
     }
 
-    let title = product.Translate.text
+    const basicTranslate = product.Translates[0]
+
+    let title = basicTranslate.text
 
     if (language && language !== 'en') {
-        const translate = product.Translate.Translates.find((item) => item.language === language)
+        const translate = basicTranslate.Translates.find((item) => item.language === language)
 
         if (translate) {
-            title = `title: ${translate.text}`
+            title = translate.text
         }
     }
 
