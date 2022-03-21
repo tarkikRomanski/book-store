@@ -3,6 +3,18 @@ const {
 } = require('../database/models');
 
 async function create(translates) {
+    if (typeof translates !== typeof {}) {
+        const originalTranslate = await Translate.create({
+            language: 'en',
+            text: translates,
+        })
+
+        return {
+            en: originalTranslate.id,
+            ua: null,
+        }
+    }
+
     const originalTranslate = await Translate.create({
         language: 'en',
         text: translates.en,

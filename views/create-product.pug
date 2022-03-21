@@ -1,0 +1,25 @@
+head
+    title Create product
+body
+    h1 Create product
+    hr
+    a(href="/products") Got to list of products
+    hr
+    form(action="/products", method="post")
+        label(for="title") Title
+        p
+            input#title(type="text", name="title")
+        label(for="price") Price
+        p
+            input#price(type="number", name="price")
+        label(for="imageUrl") Image URL
+        p
+            input#imageUrl(type="text", name="imageUrl")
+        label(for="categoryId") Category
+        p
+            select#categoryId(name="categoryId")
+                each item in categories
+                    option(value=item.id)= item.title
+
+        p
+            input(type="submit", value="Send")

@@ -1,4 +1,5 @@
 const {ProductListItemDto} = require("../../dto");
+const categoryModelToListItemDtoMapper = require("./category-model-to-list-item-dto.mapper");
 
 function productModelToListItemDtoMapper(product, language = null) {
     if (product.Translates === undefined && !product.Translates.length()) {
@@ -22,6 +23,7 @@ function productModelToListItemDtoMapper(product, language = null) {
         product.price,
         title,
         product.image,
+        product.Category ? categoryModelToListItemDtoMapper(product.Category, language) : null
     )
 }
 

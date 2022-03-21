@@ -1,6 +1,6 @@
 const {
     Product,
-    Translate,
+    Translate, Category,
 } = require('../../database/models')
 const {
     responseService,
@@ -17,13 +17,22 @@ async function getProductListController(req, res) {
                     model: Translate,
                     include: Translate,
                 },
+                {
+                    model: Category,
+                    include: {
+                        model: Translate,
+                        include: Translate,
+                    }
+                },
             ],
         })
 
-        responseService.sendSuccessResponse(
-            res,
-            productList.map((product) => productModelToListItemDtoMapper(product, req.language)),
-        )
+        res.render(
+          'product-list',
+          {
+              productList: productList.map((product) => productModelToListItemDtoMapper(product, req.language))
+          },
+      )
     } catch (e) {
         responseService.sendErrorResponse(
             res,

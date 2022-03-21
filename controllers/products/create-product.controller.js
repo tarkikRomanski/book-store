@@ -17,14 +17,16 @@ async function createProductController(req, res) {
     try {
         const translateResult = await translateService.create(title)
 
-        const result = await Product.create({
+        await Product.create({
             title: translateResult.en,
             price,
             image: imageUrl,
             categoryId,
         })
 
-        responseService.sendSuccessResponse(res, result, 201)
+        res.redirect('/products')
+
+        // responseService.sendSuccessResponse(res, result, 201)
     } catch (e) {
         responseService.sendErrorResponse(res, e.message)
     }

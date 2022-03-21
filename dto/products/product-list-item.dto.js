@@ -1,9 +1,10 @@
-function ProductListItemDto(id, price, title, image) {
+function ProductListItemDto(id, price, title, image, category) {
     return {
         id,
         price,
         title,
         image,
+        category,
     }
 }
 

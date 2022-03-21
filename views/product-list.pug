@@ -1,0 +1,25 @@
+head
+    title Product List
+body
+    h1 Product List
+    hr
+    a(href="/create-product") Create new product
+    hr
+    table(border=1, cellpadding=6)
+        thead
+            tr
+                th Title
+                th Price
+                th Image
+                th Category
+        tbody
+            each item in productList
+                tr
+                    td= item.title
+                    td= item.price
+                    td
+                        img(src=item.image)
+                    if item.category
+                        td= item.category.title
+                    else
+                        td Without category
