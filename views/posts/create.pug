@@ -1,0 +1,18 @@
+head
+    title Create post
+body
+    h1 Create post
+    hr
+    a(href="/posts") Got to list of posts
+    hr
+    form(action="/posts", method="post")
+        label(for="title") Title
+        p
+            input#title(type="text", name="title")
+
+        label(for="description") Description
+        p
+            textarea#description(name="description")
+
+        p
+            input(type="submit", value="Send")

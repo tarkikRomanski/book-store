@@ -1,0 +1,28 @@
+head
+    title Posts
+body
+    h1 Posts
+    hr
+    a(href="/posts/create") Create new post
+    hr
+    if posts.length
+        table(border=1, cellpadding=6)
+            thead
+                tr
+                    th Id
+                    th Title
+                    th Description
+                    th Actions
+            tbody
+                each item in posts
+                    tr
+                        td= item.id
+                        td= item.title
+                        td= item.description
+                        td
+                            p
+                                a(href=`/posts/${item.id}`) View
+                            p
+                                a(href=`/posts/edit/${item.id}`) Edit
+    else
+        h2 No results

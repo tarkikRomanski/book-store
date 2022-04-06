@@ -1,0 +1,36 @@
+head
+    title= post.title
+body
+    hr
+    a(href=`/posts/edit/${post.id}`) Edit post
+    hr
+    a(href="/posts") Got to list of posts
+    hr
+    a(href=`/posts/${post.id}/revert`) Revert post version to prev
+    hr
+
+    h1= post.title
+    p= post.description
+
+    hr
+
+    h2 List of changes
+
+    table(border=1, cellpadding=6)
+        thead
+            tr
+                th Id
+                th Title
+                th Description
+                th Created
+                th Actions
+        tbody
+            each item in snapshots
+                tr
+                    td= item.id
+                    td= item.title
+                    td= item.description
+                    td= item.created_at
+                    td
+                        p
+                            a(href=`/posts/revert/${item.id}`) Revert to

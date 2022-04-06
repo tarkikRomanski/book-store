@@ -1,0 +1,20 @@
+head
+    title Edit post
+body
+    h1 Edit post
+    hr
+    a(href=`/posts/${post.id}`) Got to post
+    hr
+    a(href="/posts") Got to list of posts
+    hr
+    form(action=`/posts/${post.id}`, method="post")
+        label(for="title") Title
+        p
+            input#title(type="text", name="title", value=post.title)
+
+        label(for="description") Description
+        p
+            textarea#description(name="description")= post.description
+
+        p
+            input(type="submit", value="Send")
