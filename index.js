@@ -160,10 +160,11 @@ app.get('/posts/revert/:id', async (req, res) => {
     )
 
     await sequelize.query(
-        'DELETE FROM store.posts_snapshots WHERE created_at > :created AND id != :id',
+        'DELETE FROM store.posts_snapshots WHERE created_at > :created AND id != :id AND post_id = :post_id',
         {
             replacements: {
                 id: targetVersion.id,
+                post_id: targetVersion.post_id,
                 created: targetVersion.created_at
             }
         }
