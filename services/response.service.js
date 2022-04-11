@@ -1,5 +1,4 @@
-const RESPONSE_TYPE_SUCCESS = 'success'
-const RESPONSE_TYPE_ERROR = 'error'
+const { RESPONSE_TYPE_ERROR, RESPONSE_TYPE_SUCCESS } = require('../configs/response-types')
 
 const dataKeyMap = new Map([
     [RESPONSE_TYPE_SUCCESS, 'data'],

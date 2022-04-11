@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "sync": "node ./database/sync.js",
-    "run": "nodemon index.js"
+    "run": "nodemon app.js",
+    "test": "mocha ./tests/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,13 @@
   },
   "homepage": "https://github.com/tarkikRomanski/book-store#readme",
   "dependencies": {
+    "assert": "^2.0.0",
     "body-parser": "^1.19.1",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "html": "^1.0.0",
     "md5": "^2.3.0",
+    "mocha": "^9.2.2",
     "mongodb": "^4.4.0",
     "mongoose": "^6.2.3",
     "pg": "^8.7.3",
@@ -32,6 +35,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

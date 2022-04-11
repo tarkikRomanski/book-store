@@ -27,12 +27,12 @@ async function getProductListController(req, res) {
             ],
         })
 
-        res.render(
-          'product-list',
-          {
-              productList: productList.map((product) => productModelToListItemDtoMapper(product, req.language))
-          },
-      )
+        responseService.sendSuccessResponse(
+            res,
+            {
+                productList: productList.map((product) => productModelToListItemDtoMapper(product, req.language))
+            }
+        )
     } catch (e) {
         responseService.sendErrorResponse(
             res,
