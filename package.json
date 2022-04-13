@@ -6,7 +6,8 @@
   "scripts": {
     "sync": "node ./database/sync.js",
     "run": "nodemon app.js",
-    "test": "NODE_ENV=test mocha ./tests/**/*.test.js"
+    "test": "NODE_ENV=test mocha ./tests/**/*.test.js",
+    "test-unit": "NODE_ENV=test jest unit"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   }
