@@ -9,8 +9,8 @@ const Category = sequelize.define(
             primaryKey: true,
             autoIncrement: true,
         },
-        nameTranslationId: {
-            type: DataTypes.STRING(50),
+        name: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 len: [3, 50],

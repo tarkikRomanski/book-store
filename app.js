@@ -6,8 +6,7 @@ const {
 } = require("./routes")
 const getLanguageMiddleware = require('./middlewares/get-language.middleware')
 const { sequelize } = require('./database')
-const { v4: uuid4 } = require('uuid');
-const {create} = require("./services/translate.service");
+const { v4: uuid4 } = require('uuid')
 
 const app = express()
 const port = 3000

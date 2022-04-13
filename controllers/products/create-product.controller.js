@@ -1,9 +1,5 @@
 const {
-    Product,
-    Translate,
-} = require('../../database/models')
-const {
-    responseService, translateService,
+    responseService, productService,
 } = require('../../services')
 
 async function createProductController(req, res) {
@@ -15,14 +11,7 @@ async function createProductController(req, res) {
     } = req.body
 
     try {
-        const translateResult = await translateService.create(title)
-
-        const result = await Product.create({
-            title: translateResult.en,
-            price,
-            image: imageUrl,
-            categoryId,
-        })
+        const result = await productService.create(title, price, imageUrl, categoryId)
 
         // res.redirect('/products')
 
