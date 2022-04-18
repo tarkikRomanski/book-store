@@ -4,7 +4,7 @@ function ProductListItemDto(id, price, title, image, category) {
         price,
         title,
         image,
-        category,
+        category: category || null,
     }
 }
 

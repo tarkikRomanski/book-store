@@ -2,7 +2,7 @@ const {ProductListItemDto} = require("../../dto");
 const categoryModelToListItemDtoMapper = require("./category-model-to-list-item-dto.mapper");
 
 function productModelToListItemDtoMapper(product, language = null) {
-    if (product.Translates === undefined && !product.Translates.length()) {
+    if (product.Translates === undefined || !product.Translates.length) {
         throw new Error('Product model should contain `Translates` field. Maybe you forgot to add `include: [Translate]` to request')
     }
 
