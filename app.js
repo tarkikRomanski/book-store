@@ -9,7 +9,7 @@ const { sequelize } = require('./database')
 const { v4: uuid4 } = require('uuid')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.set('views', './views')
 app.set('view engine', 'pug')
@@ -31,7 +31,7 @@ app.post('/posts', async (req, res) => {
     const postId = uuid4()
 
     await sequelize.query(
-        'INSERT INTO store.posts (id, title, description) VALUES (:id, :title, :description)',
+        'INSERT INTO posts (id, title, description) VALUES (:id, :title, :description)',
         {
             replacements: {
                 id: postId,
@@ -42,7 +42,7 @@ app.post('/posts', async (req, res) => {
     )
 
     await sequelize.query(
-        'INSERT INTO store.posts_snapshots (id, post_id, title, description) VALUES (:id, :postId, :title, :description)',
+        'INSERT INTO posts_snapshots (id, post_id, title, description) VALUES (:id, :postId, :title, :description)',
         {
             replacements: {
                 id: uuid4(),
@@ -67,7 +67,7 @@ app.post('/posts/:id', async (req, res) => {
     const { id: postId } = req.params
 
     await sequelize.query(
-        'UPDATE store.posts SET description = :description, title = :title WHERE id = :id',
+        'UPDATE posts SET description = :description, title = :title WHERE id = :id',
         {
             replacements: {
                 id: postId,
@@ -78,7 +78,7 @@ app.post('/posts/:id', async (req, res) => {
     )
 
     await sequelize.query(
-        'INSERT INTO store.posts_snapshots (id, post_id, title, description) VALUES (:id, :postId, :title, :description)',
+        'INSERT INTO posts_snapshots (id, post_id, title, description) VALUES (:id, :postId, :title, :description)',
         {
             replacements: {
                 id: uuid4(),
@@ -96,7 +96,7 @@ app.get('/posts/:id/revert', async (req, res) => {
     const { id: postId } = req.params
 
     const [ results ] = await sequelize.query(
-        'SELECT id, description, title FROM store.posts_snapshots WHERE post_id = :postId ORDER BY created_at desc LIMIT 2',
+        'SELECT id, description, title FROM posts_snapshots WHERE post_id = :postId ORDER BY created_at desc LIMIT 2',
         {
             replacements: {
                 postId
@@ -113,7 +113,7 @@ app.get('/posts/:id/revert', async (req, res) => {
     const [latestVersion, targetVersion] = results
 
     await sequelize.query(
-        'UPDATE store.posts SET description = :description, title = :title WHERE id = :id',
+        'UPDATE posts SET description = :description, title = :title WHERE id = :id',
         {
             replacements: {
                 id: postId,
@@ -124,7 +124,7 @@ app.get('/posts/:id/revert', async (req, res) => {
     )
 
     await sequelize.query(
-        'DELETE FROM store.posts_snapshots WHERE id = :id',
+        'DELETE FROM posts_snapshots WHERE id = :id',
         {
             replacements: {
                 id: latestVersion.id
@@ -139,7 +139,7 @@ app.get('/posts/revert/:id', async (req, res) => {
     const { id: snapshotId } = req.params
 
     const [[ targetVersion ]] = await sequelize.query(
-        'SELECT * FROM store.posts_snapshots WHERE id = :snapshotId ORDER BY created_at desc LIMIT 1',
+        'SELECT * FROM posts_snapshots WHERE id = :snapshotId ORDER BY created_at desc LIMIT 1',
         {
             replacements: {
                 snapshotId
@@ -148,7 +148,7 @@ app.get('/posts/revert/:id', async (req, res) => {
     )
 
     await sequelize.query(
-        'UPDATE store.posts SET description = :description, title = :title WHERE id = :id',
+        'UPDATE posts SET description = :description, title = :title WHERE id = :id',
         {
             replacements: {
                 id: targetVersion.post_id,
@@ -159,7 +159,7 @@ app.get('/posts/revert/:id', async (req, res) => {
     )
 
     await sequelize.query(
-        'DELETE FROM store.posts_snapshots WHERE created_at > :created AND id != :id AND post_id = :post_id',
+        'DELETE FROM posts_snapshots WHERE created_at > :created AND id != :id AND post_id = :post_id',
         {
             replacements: {
                 id: targetVersion.id,
@@ -173,7 +173,7 @@ app.get('/posts/revert/:id', async (req, res) => {
 })
 
 app.get('/posts', async (req, res) => {
-    const [posts] = await sequelize.query('SELECT * FROM store.posts')
+    const [posts] = await sequelize.query('SELECT * FROM posts')
 
     console.log(posts)
 
@@ -223,7 +223,7 @@ app.get('/posts/:id', async (req, res) => {
     res.render('posts/item', { post, snapshots })
 })
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Example app listening on port ${port}`)
 })
 

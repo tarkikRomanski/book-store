@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1650301174432" clover="3.2.0">
+  <project timestamp="1650301174432" name="All files">
+    <metrics statements="26" coveredstatements="25" conditionals="15" coveredconditionals="15" methods="4" coveredmethods="3" elements="45" coveredelements="43" complexity="0" loc="26" ncloc="26" packages="4" files="7" classes="7"/>
+    <package name="dto">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/dto/index.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="dto.products">
+      <metrics statements="7" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+      <file name="category-list-item.dto.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/dto/products/category-list-item.dto.js">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/dto/products/index.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="product-list-item.dto.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/dto/products/product-list-item.dto.js">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="10" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="mappers">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/mappers/index.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="mappers.products">
+      <metrics statements="15" coveredstatements="15" conditionals="13" coveredconditionals="13" methods="2" coveredmethods="2"/>
+      <file name="index.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/mappers/products/index.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+      <file name="product-model-to-list-item-dto.mapper.js" path="/Users/rprokopov/Library/Mobile Documents/com~apple~CloudDocs/Lections/code/book-store/mappers/products/product-model-to-list-item-dto.mapper.js">
+        <metrics statements="12" coveredstatements="12" conditionals="13" coveredconditionals="13" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="7" type="cond" truecount="4" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="13" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="16" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

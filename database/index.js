@@ -1,10 +1,7 @@
 const { Sequelize } = require('sequelize')
 
 const sequelize = new Sequelize(
-    'postgres://postgres@localhost:5432/postgres',
-    {
-        schema: process.env.NODE_ENV === 'test' ? 'store-test' : 'store',
-    },
+    process.env.DATABASE_URL,
 )
 
 sequelize.authenticate()
